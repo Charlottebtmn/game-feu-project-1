@@ -1,7 +1,7 @@
 // //******************************************************************
 // // Game Logic
 // //******************************************************************
-var intervalTime = 200;
+var intervalTime = 300;
 
 function Game () {
   this.themes = [
@@ -13,22 +13,27 @@ function Game () {
   this.status = 'preparation'; // in 'preparation', 'displayLetter', 'inCountDown5', 'inCountDown10','waitingResult', 'waitingNextDisplayLetter', 'finalResult'
   this.nameTeam1 = "";
   this.nameTeam2 = "";
+  this.interval=0;
   this.scoreTeam1 = 0;
   this.scoreTeam2 = 0;
   this.changeScreen();
+  this.updateScores();
   // In an ideal developing world, for example, teams = [{score: 0, name: "Azerty"}, {score: 2, name: "Qwerty"}]
   var that=this;
 
   $('#startGame').click( function () {
+    that.status = "displayLetter";
     that.nameTeam1 = $('.team1').val();
     that.nameTeam2 = $('.team2').val();
-    that.status = "displayLetter";
+    that.updateTeamNames();
     that.finished();
     that.changeScreen();
+    that.updateThemeAndLetter();
   });
 
   $('#gotSomething1').click( function () {
     that.status = "inCountDown5";
+    that.updateTeamNames();
     that.finished();
     that.changeScreen();
     that.countDown(5, function() {
@@ -37,7 +42,11 @@ function Game () {
   });
 
   $('#gotSomething2').click( function () {
+    clearInterval(that.interval);
+    $('.displayChronometer5').text("");
+    $('.displayChronometer10').text("");
     that.status = "inCountDown5";
+    that.updateTeamNames();
     that.finished();
     that.changeScreen();
     that.countDown(5, function() {
@@ -48,6 +57,8 @@ function Game () {
   $('#yes1').click( function () {
     that.scoreTeam1 ++;
     that.status = "waitingNextDisplayLetter";
+    that.updateScores();
+    that.updateTeamNames();
     that.finished();
     that.changeScreen();
   });
@@ -55,6 +66,8 @@ function Game () {
   $('#yes2').click( function () {
     that.scoreTeam2 ++;
     that.status = "waitingNextDisplayLetter";
+    that.updateScores();
+    that.updateTeamNames();
     that.finished();
     that.changeScreen();
   });
@@ -66,18 +79,22 @@ function Game () {
         that.status="waitingNextDisplayLetter";
       }
     });
+    that.updateTeamNames();
     that.finished();
     that.changeScreen();
   });
 
   $('#next').click( function () {
     that.status = "displayLetter";
+    that.updateThemeAndLetter();
+    that.updateTeamNames();
     that.finished();
     that.changeScreen();
   });
 
   $('#newGame').click( function () {
     that.status = "preparation";
+    that.updateTeamNames();
     that.finished();
     that.changeScreen();
   });
@@ -92,16 +109,23 @@ Game.prototype.pickThemeAndLetter = function () {
 };
 
 Game.prototype.countDown = function (x, callback) {
-  var counter=x+1;
+  var counter=x;
   var that=this;
-  var interval = setInterval(function() {
-    if (counter == 1) {
-        clearInterval(interval);
+  this.interval = setInterval(function() {
+    if (counter == 0) {
+        clearInterval(that.interval);
+        $('.displayChronometer5').text("");
+        $('.displayChronometer10').text("");
         callback();
         that.changeScreen();
     }
-    counter--;
-    console.log(counter);
+    else {
+      console.log (counter);
+      $('.displayChronometer5').text(counter);
+      $('.displayChronometer10').text(counter);
+      counter--;
+    }
+
 }, intervalTime);
 };
 
@@ -115,7 +139,6 @@ Game.prototype.finished = function() {
     this.status = "finalResult";
   }
 };
-
 
 Game.prototype.changeScreen = function () {
   if (this.status === "preparation" ) {
@@ -148,6 +171,34 @@ Game.prototype.changeScreen = function () {
     $('#winner').show();
   }
 };
+
+Game.prototype.updateTeamNames = function () {
+  $('.nameTeam1MainScreen').text(this.nameTeam1);
+  $('.nameTeam2MainScreen').text(this.nameTeam2);
+  $('.nameTeam1NextScreen').text(this.nameTeam1);
+  $('.nameTeam2NextScreen').text(this.nameTeam2);
+  $('.nameTeam1WhatResultScreen').text(this.nameTeam1);
+  $('.nameTeam2WhatResultScreen').text(this.nameTeam2);
+  if (this.scoreTeam1===5) {
+    $('.winnerTeam').text(this.nameTeam1);
+  }
+  else if (this.scoreTeam2===5) {
+    $('.winnerTeam').text(this.nameTeam2);
+  }
+};
+
+Game.prototype.updateScores = function () {
+  $('.scoreTeam1MainScreen').text(this.scoreTeam1);
+  $('.scoreTeam2MainScreen').text(this.scoreTeam2);
+  $('.scoreTeam1NextScreen').text(this.scoreTeam1);
+  $('.scoreTeam2NextScreen').text(this.scoreTeam2);
+};
+
+Game.prototype.updateThemeAndLetter = function () {
+  $('.theme').text(this.combination[0]);
+  $('.letter').text(this.combination[1]);
+};
+
 
 // //******************************************************************
 // // HTML/CSS Interactions

@@ -28,36 +28,43 @@
           <h1 class="theme">Le thème</h1>
           <h1 class="letter">La lettre</h1>
           <button type="button" id="gotSomething1">Got Something !</button>
-          <box class="score">Nom de l'équipe 1 <br> son score </box>
-          <box class="score">Nom de l'équipe 2 <br> son score</box>
+          <h2 class="nameTeam1MainScreen">Nom de l'équipe 1</h2>
+          <h2 class="scoreTeam1MainScreen">Score Team 1</h2>
+          <h2 class="nameTeam2MainScreen">Nom de l'équipe 2</h2>
+          <h2 class="scoreTeam2MainScreen">Score Team 2</h2>
         </section>
         <section id="chronometer5" class="container">
-          <h1>Chrono qui défile</h1>
+          <h1 class="displayChronometer5"></h1>
         </section>
         <section id="chronometer10" class="container">
-          <h1>Chrono qui défile</h1>
+          <h1 class="displayChronometer10"></h1>
           <button type="button" id="gotSomething2">Got Something !</button>
         </section>
         <section id="whatResult" class="container">
           <h1>FEU !</h1>
           <h2> So, did you guess ? </h2>
-          <box id="team1Result"> Team 1
+          <div id="team1Result">
+            <h3 class="nameTeam1WhatResultScreen">Team 1</h3>
             <button type="button" id="yes1">OUI</button>
             <button type="button" id="no1">NO</button>
-          </box>
-          <box id="team2Result"> Team 2
+          </div>
+          <div id="team2Result">
+            <h3 class="nameTeam2WhatResultScreen">Team 1</h3>
             <button type="button" id="yes2">OUI</button>
             <button type="button" id="no2">NO</button>
-          </box>
+          </div>
         </section>
         <section id="waitingNextDisplayLetter" class="container">
-          <h1 class="theme">SCORES</h1>
-          <box class="score">Nom de l'équipe 1 <br> son score </box>
-          <box class="score">Nom de l'équipe 2 <br> son score</box>
+          <h1 class="scores">SCORES</h1>
+          <h2 class="nameTeam1NextScreen">Nom de l'équipe 1</h2>
+          <h2 class="scoreTeam1NextScreen">Score Team 1</h2>
+          <h2 class="nameTeam2NextScreen">Nom de l'équipe 2</h2>
+          <h2 class="scoreTeam2NextScreen">Score Team 2</h2>
           <button type="button" id="next">Next !</button>
         </section>
         <section id="winner" class="container">
-          <h1>Team 1 won !</h1>
+          <h1 class="winnerTeam">Nom de l'équipe gagnante</h1>
+          <h1> won !</h1>
           <button type="button" id="newGame">Start a new game</button>
         </section>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
