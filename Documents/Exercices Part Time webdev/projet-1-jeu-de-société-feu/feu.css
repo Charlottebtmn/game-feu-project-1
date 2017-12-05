@@ -1,11 +1,315 @@
+* {
+  text-align: center;
+}
+
+section {
+  height: 100vh;
+  background-color: #FBFFF9;
+}
+
 .notDisplaySection {
   display : none;
 }
 
-@media (max-width: 400px) {
+#welcomeScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
 
-    section {
-      height: 100vh;
-    }
+.fire {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width : 200px;
+  height : 215px;
+  background-image: url("./images/fire.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
 
+.feu {
+  position: absolute;
+  bottom : -43px;
+  font-size : 90px;
+  font-family: "SignPainter";
+  text-align: center;
+}
+
+#teams {
+  text-align: center;
+  font-family: "ArialRoundedMTBold";
+}
+
+#teams > h2 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #ec4e20;
+}
+
+form {
+  display : flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#welcomeScreen input {
+  font-size: 15px;
+  padding : 0 0;
+  border: solid 1px #979797;
+  display: block;
+  margin-bottom: 10px;
+  font-family: ArialRoundedMTBold;
+}
+
+input::placeholder {
+  text-align: center;
+}
+
+
+#start {
+  display: flex;
+  align-self: stretch;
+  justify-content: center;
+  font-family: "ArialRoundedMTBold";
+}
+
+#startGame {
+  height: 60px;
+  width: 80%;
+  max-width: 288px;
+  border-color: #EC4E20;
+  border-width: 6px;
+  background-color: #FFE14F;
+  border-radius: 15px;
+  font-family: "ArialRoundedMTBold";
+  font-size: 23px;
+  margin-bottom: 10px;
+}
+
+.imageFeu {
+  width: 191px;
+	height: 191px;
+  align-content: center;
+}
+
+#mainScreen {
+  background-color: #FBFFF9;
+  font-family : "ArialRoundedMTBold";
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.theme {
+  font-size: 40px;
+  text-align : center;
+  color: #252422;
+  margin-bottom: -25px;
+}
+
+.letter {
+  font-size: 40px;
+  text-align : center;
+  color: #252422;
+}
+
+.teamScoresMainScreen {
+  display: flex;
+  align-self: stretch;
+  justify-content: space-around;
+  margin-top: 51px;
+}
+
+.nameTeam1MainScreen {
+  color: #ec4e20;
+  font-size: 20px;
+}
+
+.nameTeam2MainScreen {
+  color: #ec4e20;
+  font-size: 20px;
+}
+
+.scoreTeam1MainScreen {
+  font-size: 30px;    color: #252422;
+}
+
+.scoreTeam2MainScreen {
+  font-size: 30px;
+  color: #252422;
+}
+
+#gotSomething1 {
+  font-size: 30px;
+  color: #252422;
+  background-color: #ffe14f;
+  border: solid 6px #ec4e20;
+  width: 242px;
+  height: 205px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+span {
+  font-family: "SignPainter";
+  font-size: 100px ;
+}
+
+.flames {
+  height: 34px;
+  width : 85%;
+  background-image: url("./images/fire.png");
+  background-repeat: repeat-x;
+  background-size: 34px;
+  z-index: 2;
+  position : relative;
+  margin-top: -73px;
+  margin-left:19px;
+}
+
+#chronometer5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.displayChronometer5{
+  width: 236px;
+  height: 359px;
+  font-family: "ArialRoundedMTBold";
+  font-size: 180px;
+  font-weight: bold;
+  text-align: center;
+  color: #000000;
+  text-shadow: 0 5px 25px rgba(236, 78, 32, 0.5);
+}
+
+#whatResult {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.results {
+  height: 150px;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#team1Result {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#team2Result {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#whatResult > h2 {
+  font-family: "ArialRoundedMTBold";
+	font-size: 30px;
+	text-align: center;
+	color: #000000;
+}
+
+.buttonResult {
+  width: 107px;
+  height: 49px;
+  border-radius: 8px;
+  background-color: #ffe14f;
+  border: solid 4px #ec4e20;
+  font-family: "ArialRoundedMTBold";
+  font-size: 15px;
+}
+
+.nameTeam1WhatResultScreen {
+  font-family: "ArialRoundedMTBold";
+	font-size: 24px;
+	text-align: center;
+	color: #ec4e20;
+}
+
+.nameTeam2WhatResultScreen {
+  font-family: "ArialRoundedMTBold";
+	font-size: 24px;
+	text-align: center;
+	color: #ec4e20;
+}
+
+#waitingNextDisplayLetter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.scores {
+  font-family: "ArialRoundedMTBold";
+  font-size: 50px;
+  color: #252422;
+}
+
+.scoresAndTeams {
+  display: flex;
+  justify-content: space-around;
+  width: 293px;
+}
+
+.nameTeam1NextScreen {
+  font-family: "ArialRoundedMTBold";
+  font-size: 24px;
+  color: #ec4e20;
+  text-align: center;
+}
+
+.nameTeam2NextScreen {
+  font-family: "ArialRoundedMTBold";
+  font-size: 24px;
+  color: #ec4e20;
+  text-align: center;
+}
+
+.scoreTeam1NextScreen {
+  font-family: "ArialRoundedMTBold";
+  font-size: 70px;
+	text-align: center;
+	color: #252422;
+}
+
+.scoreTeam2NextScreen {
+  font-family: "ArialRoundedMTBold";
+  font-size: 70px;
+	text-align: center;
+	color: #252422;
+}
+
+.scoresAndTeams1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.scoresAndTeams2 {
+  display: flex;
+  flex-direction: column;
+}
+
+#next {
+  width: 242px;
+  height: 62px;
+  border-radius: 8px;
+  background-color: #ffe14f;
+  border: solid 4px #ec4e20;
+  font-family: "ArialRoundedMTBold";
+  font-size: 20px;
 }

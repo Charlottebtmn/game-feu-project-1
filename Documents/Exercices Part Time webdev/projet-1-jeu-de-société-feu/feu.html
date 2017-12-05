@@ -3,63 +3,81 @@
     <head>
        <title>Feu! Boardgame</title>
        <link type="text/css" rel="stylesheet" href="feu.css" media="screen">
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.css">
        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
     <body>
       <section id="welcomeScreen" class="container">
-          <div>
-            <h1>Feu!</h1>
+          <div class="fire">
+            <h1 class="feu">FEU !</h1>
           </div>
           <div id="teams">
-            <h2>Write your teams' names</h2>
+            <h2>Write your teams' names</h2><br>
               <form>
-                TEAM 1 <br>
-                <input type="text" class="team1"> <br>
-                TEAM 2 <br>
-                <input type="text" class="team2">
+                <input type="text" class="team1 input" placeholder="Team 1">
+                <input type="text" class="team2 input" placeholder="Team 2">
               </form>
           </div>
           <div id="start">
-            <button type="button" id="startGame">Start !</button>
+            <button type="button" id="startGame">START GAME</button>
           </div>
         </section>
         <section id="mainScreen" class="container">
           <h1 class="theme">Le thème</h1>
           <h1 class="letter">La lettre</h1>
-          <button type="button" id="gotSomething1">Got Something !</button>
-          <h2 class="nameTeam1MainScreen">Nom de l'équipe 1</h2>
-          <h2 class="scoreTeam1MainScreen">Score Team 1</h2>
-          <h2 class="nameTeam2MainScreen">Nom de l'équipe 2</h2>
-          <h2 class="scoreTeam2MainScreen">Score Team 2</h2>
+          <div class="buttonAndFlames">
+            <button type="button" id="gotSomething1">GOT A <br> <span>WORD<span> </button>
+            <div class="flames"></div>
+          </div>
+          <div class="teamScoresMainScreen">
+            <div class="team1ScoreandName">
+              <h2 class="nameTeam1MainScreen">Nom de l'équipe 1</h2>
+              <h2 class="scoreTeam1MainScreen">Score Team 1</h2>
+            </div>
+            <div class="team2ScoreandName">
+              <h2 class="nameTeam2MainScreen">Nom de l'équipe 2</h2>
+              <h2 class="scoreTeam2MainScreen">Score Team 2</h2>
+            </div>
+          </div>
         </section>
         <section id="chronometer5" class="container">
-          <h1 class="displayChronometer5"></h1>
+          <h1 class="displayChronometer5"> </h1>
         </section>
         <section id="chronometer10" class="container">
-          <h1 class="displayChronometer10"></h1>
+          <h1 class="displayChronometer10"> </h1>
           <button type="button" id="gotSomething2">Got Something !</button>
         </section>
         <section id="whatResult" class="container">
-          <h1>FEU !</h1>
-          <h2> So, did you guess ? </h2>
-          <div id="team1Result">
-            <h3 class="nameTeam1WhatResultScreen">Team 1</h3>
-            <button type="button" id="yes1">OUI</button>
-            <button type="button" id="no1">NO</button>
+          <div class="fire">
+            <h1 class="feu">FEU !</h1>
           </div>
-          <div id="team2Result">
-            <h3 class="nameTeam2WhatResultScreen">Team 1</h3>
-            <button type="button" id="yes2">OUI</button>
-            <button type="button" id="no2">NO</button>
+          <h2> So, got it right ? </h2>
+          <div class="results">
+            <div id="team1Result">
+              <h3 class="nameTeam1WhatResultScreen">Team 1</h3>
+              <button type="button" class="buttonResult" id="yes1">Hell Yeah !</button>
+              <button type="button" class="buttonResult" id="no1">Nah...</button>
+            </div>
+            <div id="team2Result">
+              <h3 class="nameTeam2WhatResultScreen">Team 1</h3>
+              <button type="button" class="buttonResult" id="yes2">Hell Yeah !</button>
+              <button type="button" class="buttonResult" id="no2">Nah...</button>
+            </div>
           </div>
         </section>
         <section id="waitingNextDisplayLetter" class="container">
           <h1 class="scores">SCORES</h1>
-          <h2 class="nameTeam1NextScreen">Nom de l'équipe 1</h2>
-          <h2 class="scoreTeam1NextScreen">Score Team 1</h2>
-          <h2 class="nameTeam2NextScreen">Nom de l'équipe 2</h2>
-          <h2 class="scoreTeam2NextScreen">Score Team 2</h2>
+          <div class="scoresAndTeams">
+            <div class="scoresAndTeams1">
+              <h2 class="nameTeam1NextScreen">Nom de l'équipe 1</h2>
+              <h2 class="scoreTeam1NextScreen">Score Team 1</h2>
+            </div>
+            <div class="scoresAndTeams2">
+              <h2 class="nameTeam2NextScreen">Nom de l'équipe 2</h2>
+              <h2 class="scoreTeam2NextScreen">Score Team 2</h2>
+            </div>
+          </div>
+
           <button type="button" id="next">Next !</button>
         </section>
         <section id="winner" class="container">
@@ -68,10 +86,6 @@
           <button type="button" id="newGame">Start a new game</button>
         </section>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
         <script type="text/javascript" src="feu.js"></script>
 
     </body>
