@@ -146,6 +146,7 @@ input::placeholder {
 #gotSomething1 {
   font-size: 30px;
   color: #252422;
+  text-align: center;
   background-color: #ffe14f;
   border: solid 6px #ec4e20;
   width: 242px;
@@ -312,4 +313,34 @@ span {
   border: solid 4px #ec4e20;
   font-family: "ArialRoundedMTBold";
   font-size: 20px;
+}
+
+#chronometer10 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.displayChronometer10 {
+  width: 236px;
+  height: 359px;
+  font-family: "ArialRoundedMTBold";
+  font-size: 180px;
+  font-weight: bold;
+  text-align: center;
+  color: #000000;
+  text-shadow: 0 5px 25px rgba(236, 78, 32, 0.5);
+}
+
+#gotSomething2 {
+  font-size: 30px;
+  color: #252422;
+  text-align: center;
+  background-color: #ffe14f;
+  border: solid 6px #ec4e20;
+  width: 242px;
+  height: 205px;
+  border-radius: 8px;
+  font-weight: 600;
 }
