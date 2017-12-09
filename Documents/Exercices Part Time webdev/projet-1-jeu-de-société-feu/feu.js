@@ -41,6 +41,11 @@ function Game () {
     });
   });
 
+  $('#pass').click( function () {
+    that.pickThemeAndLetter();
+    that.updateThemeAndLetter();
+  });
+
   $('#gotSomething2').click( function () {
     clearInterval(that.interval);
     $('.displayChronometer5').text("");
@@ -197,6 +202,8 @@ Game.prototype.updateScores = function () {
 Game.prototype.updateThemeAndLetter = function () {
   $('.theme').text(this.combination[0]);
   $('.letter').text(this.combination[1]);
+  $('.rappelTheme').text(this.combination[0]);
+  $('.rappelLettre').text(this.combination[1]);
 };
 
 

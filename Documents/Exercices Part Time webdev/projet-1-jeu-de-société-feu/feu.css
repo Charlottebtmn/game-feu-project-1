@@ -160,7 +160,7 @@ span {
   font-size: 100px ;
 }
 
-.flames {
+.flames1 {
   height: 34px;
   width : 85%;
   background-image: url("./images/fire.png");
@@ -322,9 +322,27 @@ span {
   align-items: center;
 }
 
+.rappelThemeLettre {
+  height: 60px;
+}
+
+.rappelTheme {
+  font-family: "ArialRoundedMTBold";
+  font-size: 40px;
+  color: #252422;
+  width : 250px;
+}
+
+.rappelLettre {
+  font-family: "ArialRoundedMTBold";
+  font-size: 40px;
+  color: #252422;
+  width : 250px;
+}
+
 .displayChronometer10 {
-  width: 236px;
-  height: 359px;
+  width: 250px;
+  height: 200px;
   font-family: "ArialRoundedMTBold";
   font-size: 180px;
   font-weight: bold;
@@ -339,8 +357,18 @@ span {
   text-align: center;
   background-color: #ffe14f;
   border: solid 6px #ec4e20;
-  width: 242px;
-  height: 205px;
+  width: 250px;
+  height: 150px;
   border-radius: 8px;
   font-weight: 600;
+}
+
+#pass {
+  width: 107px;
+  height: 49px;
+  border-radius: 8px;
+  background-color: #ffe14f;
+  border: solid 4px #ec4e20;
+  font-family: "ArialRoundedMTBold";
+  font-size: 15px;
 }
