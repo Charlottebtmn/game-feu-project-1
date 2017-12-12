@@ -37,7 +37,7 @@ section {
 .feu {
   position: absolute;
   bottom : -43px;
-  font-size : 50px;
+  font-size : 100px;
   font-family: "SignPainter";
   text-align: center;
 }
