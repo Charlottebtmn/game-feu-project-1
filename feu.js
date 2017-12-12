@@ -44,6 +44,7 @@ function Game () {
     that.updateTeamNames();
     that.finished();
     that.changeScreen();
+    s.play();
     that.countDown(5, function() {
       that.status ="waitingResult";
     });
@@ -59,6 +60,7 @@ function Game () {
     $('.displayChronometer5').text("");
     $('.displayChronometer10').text("");
     that.status = "inCountDown5";
+    s.play();
     that.updateTeamNames();
     that.finished();
     that.changeScreen();
@@ -148,11 +150,11 @@ Game.prototype.countDown = function (x, callback) {
       $('.displayChronometer10').text(counter);
       counter--;
     }
-    if (counter === 3) {
-      //setTimeout(function(){
-        s.play();
-      //}, 650);
-    }
+    // if (counter === 3) {
+    //   setTimeout(function(){
+    //     s.play();
+    //   }, 650);
+    // }
   }, intervalTime);
 };
 
