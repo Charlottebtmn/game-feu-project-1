@@ -37,7 +37,7 @@ section {
 .feu {
   position: absolute;
   bottom : -43px;
-  font-size : 90px;
+  font-size : 50px;
   font-family: "SignPainter";
   text-align: center;
 }
@@ -162,7 +162,7 @@ input::placeholder {
 
 span {
   font-family: "SignPainter";
-  font-size: 100px ;
+  font-size: 80px ;
 }
 
 .flames1 {
