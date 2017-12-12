@@ -2,10 +2,16 @@
 // // Game Logic
 // //******************************************************************
 var intervalTime = 1000;
+var s = new Sound("./sons/mario.mp3");
+var n = new Sound("./sons/feu.mp3");
+var g;
+$(document).ready(function(){
+  g = new Game();
+});
 
 function Game () {
   this.themes = [
-    "Animal", "Room", "Country","City","Brand"
+    "Animal", "Country","City","Brand","Celebrity","Body Part","Movie","Object","Sth you can wear"
   ];
   this.alphabet =["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V"];
   this.combination=[];
@@ -16,6 +22,7 @@ function Game () {
   this.interval=0;
   this.scoreTeam1 = 0;
   this.scoreTeam2 = 0;
+  this.missCounter = 0;
   this.changeScreen();
   this.updateScores();
   // In an ideal developing world, for example, teams = [{score: 0, name: "Azerty"}, {score: 2, name: "Qwerty"}]
@@ -29,6 +36,7 @@ function Game () {
     that.finished();
     that.changeScreen();
     that.updateThemeAndLetter();
+    n.play();
   });
 
   $('#gotSomething1').click( function () {
@@ -66,6 +74,7 @@ function Game () {
     that.updateTeamNames();
     that.finished();
     that.changeScreen();
+    n.play();
   });
 
   $('#yes2').click( function () {
@@ -75,26 +84,35 @@ function Game () {
     that.updateTeamNames();
     that.finished();
     that.changeScreen();
+    n.play();
   });
 
   $('#no1,#no2').click( function () {
-    that.status = "inCountDown10";
-    that.countDown(10, function() {
-      if (that.status === "inCountDown10") {
+    if (that.missCounter <= 1) {
+      that.status = "inCountDown10";
+      that.countDown(10, function() {
+        if (that.status === "inCountDown10") {
         that.status="waitingNextDisplayLetter";
       }
     });
+      that.missCounter ++;
+    }
+    else {
+      that.status ="waitingNextDisplayLetter";
+      that.missCounter =0;
+    }
     that.updateTeamNames();
     that.finished();
     that.changeScreen();
+
   });
 
   $('#next').click( function () {
     that.status = "displayLetter";
-    that.updateThemeAndLetter();
     that.updateTeamNames();
     that.finished();
     that.changeScreen();
+    that.updateThemeAndLetter();
   });
 
   $('#newGame').click( function () {
@@ -130,18 +148,24 @@ Game.prototype.countDown = function (x, callback) {
       $('.displayChronometer10').text(counter);
       counter--;
     }
-
-}, intervalTime);
+    if (counter === 3) {
+      setTimeout(function(){
+        s.play();
+      }, 650);
+    }
+  }, intervalTime);
 };
 
 Game.prototype.finished = function() {
   if (this.scoreTeam1 >= 5) {
     //return (this.nameTeam1 + " won !");
     this.status = "finalResult";
+    n.play();
   }
   else if (this.scoreTeam2 >= 5) {
     //return (this.nameTeam2 + " won !");
     this.status = "finalResult";
+    n.play();
   }
 };
 
@@ -206,12 +230,37 @@ Game.prototype.updateThemeAndLetter = function () {
   $('.rappelLettre').text(this.combination[1]);
 };
 
+// Game.prototype.addSound = function (src) {
+//     this.addSound = document.createElement("audio");
+//     this.addSound.src = src;
+//     this.addSound.setAttribute("preload", "auto");
+//     this.addSound.setAttribute("controls", "none");
+//     this.addSound.style.display = "none";
+//     document.body.appendChild(this.addSound);
+//     this.play = function(){
+//         this.addSound.play();
+//     };
+//     this.stop = function(){
+//         this.addSound.pause();
+//     };
+// };
 
 // //******************************************************************
 // // HTML/CSS Interactions
 // //******************************************************************
 
-var g;
-$(document).ready(function(){
-  g = new Game();
-});
+
+function Sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    };
+    this.stop = function(){
+        this.sound.pause();
+    };
+}

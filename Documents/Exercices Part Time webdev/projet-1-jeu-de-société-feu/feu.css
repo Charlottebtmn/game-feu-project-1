@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+@font-face {
+  font-family: "SignPainter";
+  src: url(fonts/SignPainter-HouseScript.ttf) format("truetype");
+}
+
 section {
   height: 100vh;
   background-color: #FBFFF9;
