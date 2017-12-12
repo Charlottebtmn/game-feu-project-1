@@ -44,7 +44,9 @@ function Game () {
     that.updateTeamNames();
     that.finished();
     that.changeScreen();
-    s.play();
+    setTimeout(function(){
+         s.play();
+       }, 650);
     that.countDown(5, function() {
       that.status ="waitingResult";
     });
@@ -60,7 +62,9 @@ function Game () {
     $('.displayChronometer5').text("");
     $('.displayChronometer10').text("");
     that.status = "inCountDown5";
-    s.play();
+    setTimeout(function(){
+         s.play();
+       }, 650);
     that.updateTeamNames();
     that.finished();
     that.changeScreen();
