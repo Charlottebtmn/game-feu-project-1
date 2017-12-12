@@ -157,12 +157,12 @@ Game.prototype.countDown = function (x, callback) {
 };
 
 Game.prototype.finished = function() {
-  if (this.scoreTeam1 >= 5) {
+  if (this.scoreTeam1 >= 3) {
     //return (this.nameTeam1 + " won !");
     this.status = "finalResult";
     n.play();
   }
-  else if (this.scoreTeam2 >= 5) {
+  else if (this.scoreTeam2 >= 3) {
     //return (this.nameTeam2 + " won !");
     this.status = "finalResult";
     n.play();
