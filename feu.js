@@ -149,9 +149,9 @@ Game.prototype.countDown = function (x, callback) {
       counter--;
     }
     if (counter === 3) {
-      setTimeout(function(){
+      //setTimeout(function(){
         s.play();
-      }, 650);
+      //}, 650);
     }
   }, intervalTime);
 };
